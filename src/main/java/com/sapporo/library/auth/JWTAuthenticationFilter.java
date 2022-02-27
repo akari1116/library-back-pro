@@ -71,7 +71,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			Authentication auth) throws IOException, ServletException {
 		// loginIdからtokenを設定してヘッダにセットする
 		String token = Jwts.builder().setSubject(((User) auth.getPrincipal()).getUsername())
-				.setExpiration(new Date(System.currentTimeMillis() +  30 * 60 * 1000))
+				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
 				.signWith(SignatureAlgorithm.HS512, SECRET.getBytes()).compact();
 
 		res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
