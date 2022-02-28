@@ -53,7 +53,6 @@ public class JWTAuthorzationFilter extends BasicAuthenticationFilter{
 			String user = Jwts.parser().setSigningKey(SECRET.getBytes()).parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
 					.getBody().getSubject();
 			if (user != null) {
-				System.out.println("ログイン成功2");
 				return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
 			}
 			return null;

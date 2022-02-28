@@ -40,7 +40,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		this.authenticationManager = authenticationManager;
 
 		// ログイン用のpathを変更する
-		setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login", "POST"));
+		setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(LOGIN_URL, "POST"));
 
 		// ログイン用のID/PWのパラメータ名を変更する
 		setUsernameParameter(EMAIL);
